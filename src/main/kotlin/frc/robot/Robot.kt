@@ -23,6 +23,7 @@ object Robot : TimedRobot(), Logged {
 
     private fun loadResources() {
         TunerConstants
+        Interfaces
     }
 
     override fun robotInit() {

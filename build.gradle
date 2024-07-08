@@ -69,8 +69,6 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    implementation 'com.github.Ow1e:Coralis:0.1.3'
-    implementation 'com.github.shueja:Monologue:v1.0.0-beta6'
 }
 
 test {
