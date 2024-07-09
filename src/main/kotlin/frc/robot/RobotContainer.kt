@@ -15,11 +15,14 @@ import frc.robot.subsystems.drivetrain.Swerve.brake
 import frc.robot.subsystems.drivetrain.Swerve.drive
 import frc.robot.subsystems.drivetrain.Swerve.drivetrain
 import frc.robot.subsystems.drivetrain.Swerve.seedField
+import frc.robot.subsystems.indicators.Neopixels
 
 // Logging
 import monologue.Logged
 
 class RobotContainer : Logged {
+    private val neopixels = Neopixels()
+
     private val joystick = CommandXboxController(0)
     private val auto = Autonamous()
 
