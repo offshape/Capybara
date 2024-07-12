@@ -97,7 +97,7 @@ class CommandSwerveDrivetrain : SwerveDrivetrain, Subsystem {
         return PathPlannerAuto(pathName)
     }
 
-    val currentRobotChassisSpeeds: ChassisSpeeds
+    private val currentRobotChassisSpeeds: ChassisSpeeds
         get() = m_kinematics.toChassisSpeeds(*state.ModuleStates)
 
     private fun startSimThread() {
