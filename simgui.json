@@ -23,6 +23,10 @@
     },
     "windows": {
       "/Robot/Telemetry/Odometetry/Position": {
+        "Robot": {
+          "length": 0.8127999901771545,
+          "width": 0.8127999901771545
+        },
         "bottom": 1476,
         "height": 8.210550308227539,
         "left": 150,

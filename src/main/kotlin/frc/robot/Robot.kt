@@ -3,6 +3,8 @@
 // the WPILib BSD license file in the root directory of this project.
 package frc.robot
 
+import edu.wpi.first.hal.FRCNetComm
+import edu.wpi.first.hal.HAL
 import edu.wpi.first.wpilibj.DriverStation
 import edu.wpi.first.wpilibj.TimedRobot
 import edu.wpi.first.wpilibj2.command.Command
@@ -26,6 +28,7 @@ object Robot : TimedRobot(), Logged {
         TunerConstants
         Interfaces
         Paths
+        State
     }
 
     override fun robotInit() {
@@ -36,6 +39,9 @@ object Robot : TimedRobot(), Logged {
         m_robotContainer = RobotContainer()
 
         Monologue.setupMonologue(m_robotContainer, "Robot", Logging.fileOnly, Logging.lazyLogging)
+
+        HAL.report(FRCNetComm.tResourceType.kResourceType_Language, FRCNetComm.tInstances.kLanguage_Kotlin) // Flex on the FTAs
+        HAL.report(FRCNetComm.tResourceType.kResourceType_Kinematics, FRCNetComm.tInstances.kKinematics_SwerveDrive) // Might be useful i dunno
 
         Swerve.drivetrain.daqThread.setThreadPriority(99) // CTRE Sauce for the Swerve Thread
     }

@@ -12,10 +12,10 @@ import frc.robot.Interfaces
 import monologue.Logged
 
 class Neopixels : ExecutionLadder<Animation>(arrayOf(
-    { // Check if E-Stop is pressed
+    {
         if (DriverStation.isEStopped()) Flash(1) else null
     },
-    { // Neopixel Animations when Disabled
+    {
         if (RobotState.isDisabled()) {
             when {
                 Interfaces.power.voltage < 12.5 && RobotBase.isReal() -> Pulse(1, 1.0)
@@ -36,6 +36,8 @@ class Neopixels : ExecutionLadder<Animation>(arrayOf(
     private val controller = LightController(0, 59, arrayOf(fullSection), 20)
 
     init {
+        name = "Neopixel Ladder Controller"
+
         setOnChange { animation ->
             fullSection.animation = animation
             log("currentAnimation", animation.toString())
