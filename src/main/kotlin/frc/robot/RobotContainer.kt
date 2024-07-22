@@ -6,9 +6,8 @@ package frc.robot
 import com.ctre.phoenix6.mechanisms.swerve.SwerveDrivetrain.SwerveDriveState
 import edu.wpi.first.wpilibj2.command.Command
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController
-import frc.robot.subsystems.drivetrain.Autonamous
+import frc.robot.auto.AutoController
 
-// Swerve Stuff
 import frc.robot.subsystems.drivetrain.Swerve.MaxSpeed
 import frc.robot.subsystems.drivetrain.Swerve.MaxAngularRate
 import frc.robot.subsystems.drivetrain.Swerve.brake
@@ -17,14 +16,13 @@ import frc.robot.subsystems.drivetrain.Swerve.drivetrain
 import frc.robot.subsystems.drivetrain.Swerve.seedField
 import frc.robot.subsystems.indicators.Neopixels
 
-// Logging
 import monologue.Logged
 
 class RobotContainer : Logged {
     private val neopixels = Neopixels()
+    private val autoControl = AutoController()
 
     private val joystick = CommandXboxController(0)
-    private val auto = Autonamous()
 
     val autonomousCommand: Command = drivetrain.getAutoPath("Example")
     private val logger = Telemetry(MaxSpeed)

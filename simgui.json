@@ -19,7 +19,8 @@
   "NTProvider": {
     "types": {
       "/FMSInfo": "FMSInfo",
-      "/Robot/Telemetry/Odometetry/Position": "Field2d"
+      "/Robot/Telemetry/Odometetry/Position": "Field2d",
+      "/Robot/autoControl/Selected Auto": "String Chooser"
     },
     "windows": {
       "/Robot/Telemetry/Odometetry/Position": {
