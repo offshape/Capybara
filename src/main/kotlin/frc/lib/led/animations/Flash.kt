@@ -3,8 +3,10 @@ package frc.lib.led.animations
 import edu.wpi.first.wpilibj.AddressableLEDBuffer
 import frc.lib.led.Animation
 
-class Flash(private val periodLength: Int, private val color: Triple<Int, Int, Int> = Triple(255, 255, 255)) :
-    Animation {
+class Flash(
+    private val periodLength: Int,
+    private val color: Triple<Int, Int, Int> = Triple(255, 255, 255)
+) : Animation {
     private var ticks = 0
 
     override fun onStart() {

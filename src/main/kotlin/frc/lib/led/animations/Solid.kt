@@ -3,7 +3,9 @@ package frc.lib.led.animations
 import edu.wpi.first.wpilibj.AddressableLEDBuffer
 import frc.lib.led.Animation
 
-class Solid(private val color: Triple<Int, Int, Int> = Triple(255, 255, 255)) : Animation {
+class Solid(
+    private val color: Triple<Int, Int, Int> = Triple(255, 255, 255)
+) : Animation {
     override fun onStart() {} // Not needed
 
     override fun onUpdate(buffer: AddressableLEDBuffer, startingIndex: Int, endingIndex: Int) {
