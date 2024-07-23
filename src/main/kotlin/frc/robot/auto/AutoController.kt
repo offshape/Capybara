@@ -14,7 +14,7 @@ class AutoController : Logged {
     }
 
     init {
-        for (auto in Autos.values()) {
+        for (auto in Autos.entries) {
             autoSelection.addOption(auto.fancyName, auto)
         }
 

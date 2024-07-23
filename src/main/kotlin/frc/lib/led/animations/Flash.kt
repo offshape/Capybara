@@ -17,9 +17,9 @@ class Flash(
         val isOn = (ticks / periodLength) % 2 == 0
         for (i in startingIndex..endingIndex) {
             if (isOn) {
-                buffer.setRGB(i, color.first, color.second, color.third) // Set to the specified color when on
+                buffer.setRGB(i, color.first, color.second, color.third)
             } else {
-                buffer.setRGB(i, 0, 0, 0) // Set to black color when off
+                buffer.setRGB(i, 0, 0, 0)
             }
         }
         ticks++

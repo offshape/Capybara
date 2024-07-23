@@ -62,9 +62,7 @@ object Robot : TimedRobot(), Logged {
     override fun autonomousInit() {
         m_autonomousCommand = m_robotContainer!!.autonomousCommand
 
-        if (m_autonomousCommand != null) {
-            m_autonomousCommand!!.schedule()
-        }
+        m_autonomousCommand?.schedule()
     }
 
     override fun autonomousPeriodic() {}

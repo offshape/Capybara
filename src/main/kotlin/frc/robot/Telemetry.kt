@@ -11,6 +11,11 @@ import monologue.Annotations.Log
 import monologue.LogLevel
 import monologue.Logged
 
+/**
+ * Construct a telemetry object, with the specified max speed of the robot
+ *
+ * @param maxSpeed Maximum speed in meters per second
+ */
 class Telemetry(private val MaxSpeed: Double) : Logged {
     /* What to publish over networktables for telemetry */
     var lastPose = Pose2d()
@@ -40,11 +45,6 @@ class Telemetry(private val MaxSpeed: Double) : Logged {
     private var m_lastPose = Pose2d()
     private var lastTime = Utils.getCurrentTimeSeconds()
 
-    /**
-     * Construct a telemetry object, with the specified max speed of the robot
-     *
-     * @param maxSpeed Maximum speed in meters per second
-     */
     init {
         SignalLogger.start()
     }

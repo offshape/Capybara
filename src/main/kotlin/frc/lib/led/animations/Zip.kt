@@ -8,33 +8,29 @@ class Zip(
     private val length: Int = 10,
     private val speed: Int = 1
 ) : Animation {
-    private var currentPosition = 0 // Starting position of the snake's head
+    private var currentPosition = 0
 
     override fun onStart() {
-        currentPosition = 0 // Reset the snake's position at the start
+        currentPosition = 0
     }
 
     override fun onUpdate(buffer: AddressableLEDBuffer, startingIndex: Int, endingIndex: Int) {
-        // Clear the strip before drawing the zip
         for (i in startingIndex..endingIndex) {
             buffer.setRGB(i, 0, 0, 0)
         }
 
-        // Increment currentPosition, wrap around if it exceeds endingIndex
         currentPosition += speed
         if (currentPosition > endingIndex) {
             currentPosition = startingIndex + (currentPosition - endingIndex - 1) % (endingIndex - startingIndex + 1)
         }
 
-        // Draw the zip, taking into account the wrap-around for both ends
         for (i in 0 until length) {
             val position = currentPosition - i
             if (position in startingIndex..endingIndex) {
                 buffer.setRGB(position, color.first, color.second, color.third)
             } else if (position < startingIndex) {
-                // Calculate wrap-around position for the start of the strip
                 val wrapAroundPosition = endingIndex - (startingIndex - position - 1) % (endingIndex - startingIndex + 1)
-                if (wrapAroundPosition >= startingIndex && wrapAroundPosition <= endingIndex) {
+                if (wrapAroundPosition in startingIndex..endingIndex) {
                     buffer.setRGB(wrapAroundPosition, color.first, color.second, color.third)
                 }
             }
