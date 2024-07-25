@@ -1,2 +1,2 @@
-# CompoundV
-A very supped up template for signal/command based FIRST robots
+# Capybara
+A Kotlin powered FIRST Robotics Competition code template.
