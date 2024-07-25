@@ -5,6 +5,7 @@ package frc.robot
 
 import edu.wpi.first.hal.FRCNetComm
 import edu.wpi.first.hal.HAL
+import edu.wpi.first.networktables.NetworkTableInstance
 import edu.wpi.first.wpilibj.DriverStation
 import edu.wpi.first.wpilibj.TimedRobot
 import edu.wpi.first.wpilibj2.command.Command
@@ -22,6 +23,20 @@ object Robot : TimedRobot(), Logged {
     object Logging {
         const val fileOnly = false
         const val lazyLogging = false
+    }
+
+    object Info {
+        const val name = "Vipa"
+        const val codeRevision = "1.0.0"
+        const val buildRevision = "1.0.0"
+
+        fun publishMetadata() {
+            val ntInstance = NetworkTableInstance.getDefault()
+
+            ntInstance.getStringTopic("/Metadata/Robot Name").publish().set(name)
+            ntInstance.getStringTopic("/Metadata/Code Revision").publish().set(codeRevision)
+            ntInstance.getStringTopic("/Metadata/Build Revision").publish().set(buildRevision)
+        }
     }
 
     private fun loadResources() {
@@ -44,6 +59,8 @@ object Robot : TimedRobot(), Logged {
         HAL.report(FRCNetComm.tResourceType.kResourceType_Kinematics, FRCNetComm.tInstances.kKinematics_SwerveDrive) // Might be useful i dunno
 
         Swerve.drivetrain.daqThread.setThreadPriority(99) // CTRE Sauce for the Swerve Thread
+
+        Info.publishMetadata()
     }
 
     override fun robotPeriodic() {

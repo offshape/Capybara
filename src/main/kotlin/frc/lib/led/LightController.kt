@@ -15,7 +15,6 @@ class LightController(
     private val notifier = Notifier(this::update)
 
     init {
-        // Setup LED stuff
         ledChannel.setLength(ledCount)
         ledChannel.start()
 
