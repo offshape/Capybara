@@ -11,5 +11,5 @@
 </div>
 
 <p align="center">
-    A Kotlin powered FIRST Robotics Competition code template.
+    A Kotlin powered FIRST Robotics Competition code template. Made for CTR Electronics based robots, with Monologue logging, and a focus on simplicity and ease of use.
 </p>
