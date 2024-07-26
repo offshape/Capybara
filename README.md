@@ -36,7 +36,10 @@ enum class RobotState {
 }
 
 val currentState = Gateway(RobotState.entries, RobotState.DISABLED)
-val reserve = Reserve() // This acts like a subsystem, and makes sure 
+
+// This acts like a subsystem, and makes sure only one state is active at a time
+// Internally its the command that pushes updates and updates all Suppliers, not the Reserve
+val reserve = Reserve()
 
 // In centimeters
 val elevatorState = Supplier(currentState, hashMapOf(
