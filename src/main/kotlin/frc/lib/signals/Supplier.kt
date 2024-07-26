@@ -11,8 +11,14 @@ class Supplier<T: Enum<T>, V>(private val gateway: Gateway<T>, private val map: 
 
     init {
         gateway.addConditional({ map.containsKey(it) }) {
+            listeners.forEach { it(lastProduct!!) }
+
+            if (it != lastProduct) {
+                productListeners.forEach { it(lastProduct!!) }
+            }
+
             lastProduct = map[it]!!()
-            productListeners.forEach { it(lastProduct!!) }
+
         }
     }
 
@@ -22,6 +28,14 @@ class Supplier<T: Enum<T>, V>(private val gateway: Gateway<T>, private val map: 
         override fun execute() {
             gateway.signal = state
         }
+    }
+
+    fun addListener(listener: (V) -> Unit) {
+        listeners.add(listener)
+    }
+
+    fun onNewProduct(listener: (V) -> Unit) {
+        productListeners.add(listener)
     }
 
     override fun initSendable(p0: SendableBuilder?) {

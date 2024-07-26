@@ -41,6 +41,7 @@ object Robot : TimedRobot(), Logged {
 
     private fun loadResources() {
         TunerConstants
+        Constants
         Interfaces
         Paths
         State

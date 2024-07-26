@@ -26,7 +26,7 @@ import kotlin.math.max
 
 /**
  * Class that extends the Phoenix SwerveDrivetrain class and implements
- * subsystem so it can be used in command-based projects easily.
+ * subsystem, so it can be used in command-based projects easily.
  */
 class CommandSwerveDrivetrain : SwerveDrivetrain, Subsystem {
     private var m_simNotifier: Notifier? = null

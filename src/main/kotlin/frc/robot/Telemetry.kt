@@ -5,7 +5,6 @@ import com.ctre.phoenix6.Utils
 import com.ctre.phoenix6.mechanisms.swerve.SwerveDrivetrain.SwerveDriveState
 import edu.wpi.first.math.geometry.Pose2d
 import edu.wpi.first.math.kinematics.SwerveModuleState
-import edu.wpi.first.networktables.*
 import edu.wpi.first.wpilibj.smartdashboard.Field2d
 import monologue.Annotations.Log
 import monologue.LogLevel
