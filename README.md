@@ -26,7 +26,7 @@ Signal/State Based Programming is best fit for complex motion and system control
 // With an elevator, wrist and intake
 
 // Our restrictions are that the wrist can only move when high enough,
-// or it will hit its bumper, so its in between the INTAKE and IDLE states
+// or it will hit its bumper, so its in between the INTAKE and IDLE states that we can have issues
 
 enum class RobotState {
     PLACING,
@@ -64,10 +64,11 @@ elevatorState.onNewProduct {
     elevatorMotor.setReference(it)
 }
 
-// Integration with Command Based Programming
+// Integration with Command Based Programming (Syntax will change soon)
 
-elevatorState.changeState(RobotState.PLACING) 
-// ^^^ This changes the state of everything using CurrentState, syntax will change
+joystick.a().onTrue(elevatorState.changeState(RobotState.PLACING))
+
+reserve.defaultCommand = elevatorState.changeState(RobotState.IDLE)
 ```
 
 ## Subsystem Templates
@@ -108,6 +109,7 @@ class Neopixels : ExecutionLadder<Animation>(arrayOf(
     }
 }
 ```
+In the backend the ExecutionLadder traverses until it gets a value other than null, which means certain values can be prioritized over others easly.
 
 ### Animations
 TODO
