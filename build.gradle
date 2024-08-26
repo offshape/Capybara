@@ -70,7 +70,7 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation 'com.github.shueja:Monologue:v1.0.0-beta6'
-    implementation "org.jetbrains.kotlin:kotlin-reflect:2.0.10"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:2.0.20"
 }
 
 test {
