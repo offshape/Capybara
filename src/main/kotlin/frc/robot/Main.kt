@@ -10,7 +10,5 @@ import edu.wpi.first.wpilibj.RobotBase
 
 object Main {
     @JvmStatic
-    fun main(args: Array<String>) {
-        RobotBase.startRobot { Robot }
-    }
+    fun main(args: Array<String>) = RobotBase.startRobot { Robot }
 }
